@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teecha — Post 4A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      background: #CBD5E1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    body {
+      width: 800px;
+      height: 800px;
+      overflow: hidden;
+      position: relative;
+      background: #0F172A;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    }
+
+    /* Split halves */
+    .half {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+
+    .half-left {
+      background: #0F172A;
+      clip-path: polygon(0 0, 53% 0, 47% 100%, 0 100%);
+    }
+
+    .half-right {
+      background: linear-gradient(155deg, #1D4ED8 0%, #2563EB 30%, #7C3AED 100%);
+      clip-path: polygon(53% 0, 100% 0, 100% 100%, 47% 100%);
+    }
+
+    /* Diagonal divider line */
+    .divider {
+      position: absolute;
+      left: calc(50% - 1.5px);
+      top: 0;
+      width: 3px;
+      height: 100%;
+      background: rgba(255,255,255,0.18);
+      transform-origin: center center;
+      transform: skewX(3.4deg);
+      z-index: 10;
+    }
+
+    /* Content left */
+    .content-left {
+      position: absolute;
+      left: 68px;
+      top: 50%;
+      transform: translateY(-50%);
+      max-width: 310px;
+      z-index: 20;
+    }
+
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      margin-bottom: 18px;
+    }
+
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .step {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 52px;
+      line-height: 1.08;
+      color: #fff;
+    }
+
+    .step:nth-child(1) { opacity: 1; }
+    .step:nth-child(2) { opacity: 0.62; }
+    .step:nth-child(3) { opacity: 0.42; }
+    .step:nth-child(4) { opacity: 0.26; }
+    .step:nth-child(5) { opacity: 0.14; }
+
+    /* Content right */
+    .content-right {
+      position: absolute;
+      right: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 280px;
+      text-align: center;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo {
+      height: 36px;
+      filter: brightness(0) invert(1);
+      margin-bottom: 24px;
+      opacity: 0.95;
+    }
+
+    .big-line {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 84px;
+      line-height: 1;
+      color: #fff;
+      letter-spacing: -2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="half half-left"></div>
+  <div class="half half-right"></div>
+  <div class="divider"></div>
+
+  <!-- Left content -->
+  <div class="content-left">
+    <div class="eyebrow">Formación grabada</div>
+    <div class="step-list">
+      <div class="step">Grabar.</div>
+      <div class="step">Editar.</div>
+      <div class="step">Subir.</div>
+      <div class="step">Esperar.</div>
+      <div class="step">Repetir.</div>
+    </div>
+  </div>
+
+  <!-- Right content -->
+  <div class="content-right">
+    <img class="logo" src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
+    <div class="big-line">Da</div>
+    <div class="big-line">clase.</div>
+  </div>
+
+</body>
+</html>

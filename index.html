@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teecha — Creatividades Instagram</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #F1F5F9;
+      font-family: 'DM Sans', sans-serif;
+      padding: 0 0 120px;
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #E2E8F0;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-logo {
+      height: 28px;
+    }
+
+    .header-meta {
+      font-size: 13px;
+      color: #94A3B8;
+    }
+
+    .header-meta strong {
+      color: #475569;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding-top: 72px;
+    }
+
+    /* Post item */
+    .post-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding-bottom: 80px;
+    }
+
+    .post-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .post-num {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #C4B5FD;
+    }
+
+    .post-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #64748B;
+      letter-spacing: 0.03em;
+    }
+
+    .post-badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: #EDE9FE;
+      color: #7C3AED;
+    }
+
+    /* Frame */
+    .post-frame {
+      width: 800px;
+      height: 800px;
+      border: none;
+      border-radius: 2px;
+      display: block;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.13);
+    }
+
+    /* Canva placeholder */
+    .canva-placeholder {
+      width: 800px;
+      height: 240px;
+      background: #E2E8F0;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #94A3B8;
+    }
+
+    .canva-icon {
+      font-size: 32px;
+    }
+
+    .canva-text {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* Variants row */
+    .variants-row {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .variant {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .variant-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94A3B8;
+    }
+
+    /* Carousel */
+    .carousel-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .carousel {
+      position: relative;
+      width: 800px;
+      height: 800px;
+    }
+
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .carousel-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid #E2E8F0;
+      background: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: all 0.15s;
+      color: #475569;
+    }
+
+    .carousel-btn:hover {
+      border-color: #7C3AED;
+      color: #7C3AED;
+      box-shadow: 0 4px 16px rgba(124,58,237,0.15);
+    }
+
+    .carousel-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #CBD5E1;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .dot.active {
+      background: #7C3AED;
+      width: 20px;
+      border-radius: 4px;
+    }
+
+    .slide-counter {
+      font-size: 12px;
+      font-weight: 600;
+      color: #94A3B8;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    /* Divider */
+    .section-divider {
+      width: 1px;
+      height: 60px;
+      background: #E2E8F0;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img class="header-logo" src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
+    <span class="header-meta">Creatividades Instagram — <strong>Soft Launch Formadores</strong></span>
+  </header>
+
+  <div class="gallery">
+
+    <!-- POST 1 -->
+    <div class="post-item">
+      <div class="post-label">
+        <span class="post-num">Post 01</span>
+        <span class="post-title">Presentación de marca</span>
+      </div>
+      <iframe class="post-frame" src="posts/post-01-presentacion.html" scrolling="no"></iframe>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- POST 2 — Búsqueda -->
+    <div class="post-item">
+      <div class="post-label">
+        <span class="post-num">Post 02</span>
+        <span class="post-title">Tus alumnos te buscan en Teecha</span>
+      </div>
+      <iframe class="post-frame" src="posts/post-02-busqueda.html" scrolling="no"></iframe>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- POST 3 — Marketplace -->
+    <div class="post-item">
+      <div class="post-label">
+        <span class="post-num">Post 03</span>
+        <span class="post-title">El marketplace de la formación en directo</span>
+      </div>
+      <iframe class="post-frame" src="posts/post-03-marketplace.html" scrolling="no"></iframe>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- POST 4 — El esfuerzo -->
+    <div class="post-item">
+      <div class="post-label">
+        <span class="post-num">Post 04</span>
+        <span class="post-title">Grabar. Editar. Subir. Esperar. / Da clase.</span>
+      </div>
+      <iframe class="post-frame" src="posts/post-04a-esfuerzo.html" scrolling="no"></iframe>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- POST 5 — Carrusel -->
+    <div class="post-item">
+      <div class="post-label">
+        <span class="post-num">Post 05</span>
+        <span class="post-title">Tu mejor formación no cabe en un vídeo</span>
+        <span class="post-badge">Carrusel · 3 slides</span>
+      </div>
+      <div class="carousel-wrapper">
+        <div class="carousel" id="carousel">
+          <iframe class="post-frame carousel-slide active" src="posts/post-05-slide-1.html" scrolling="no"></iframe>
+          <iframe class="post-frame carousel-slide" src="posts/post-05-slide-2.html" scrolling="no"></iframe>
+          <iframe class="post-frame carousel-slide" src="posts/post-05-slide-3.html" scrolling="no"></iframe>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" onclick="prevSlide()" title="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-dots" id="dots">
+            <div class="dot active" onclick="goToSlide(0)"></div>
+            <div class="dot" onclick="goToSlide(1)"></div>
+            <div class="dot" onclick="goToSlide(2)"></div>
+          </div>
+          <button class="carousel-btn" onclick="nextSlide()" title="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- POST 6 — Control -->
+    <div class="post-item">
+      <div class="post-label">
+        <span class="post-num">Post 06</span>
+        <span class="post-title">Sus reglas vs. Tu aula</span>
+      </div>
+      <iframe class="post-frame" src="posts/post-04c-control.html" scrolling="no"></iframe>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- POST 7 — 3 formatos -->
+    <div class="post-item">
+      <div class="post-label">
+        <span class="post-num">Post 07</span>
+        <span class="post-title">Elige cómo enseñar</span>
+      </div>
+      <iframe class="post-frame" src="posts/post-07-3formatos.html" scrolling="no"></iframe>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- POST 8 — Planificador -->
+    <div class="post-item">
+      <div class="post-label">
+        <span class="post-num">Post 08</span>
+        <span class="post-title">Tu agenda de formaciones, bajo control</span>
+      </div>
+      <iframe class="post-frame" src="posts/post-08-planificador.html" scrolling="no"></iframe>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- POST 9 — CTA -->
+    <div class="post-item">
+      <div class="post-label">
+        <span class="post-num">Post 09</span>
+        <span class="post-title">¿Eres formador?</span>
+      </div>
+      <iframe class="post-frame" src="posts/post-09-cta.html" scrolling="no"></iframe>
+    </div>
+
+  </div>
+
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function goToSlide(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function nextSlide() { goToSlide(current + 1); }
+    function prevSlide() { goToSlide(current - 1); }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+  </script>
+
+</body>
+</html>

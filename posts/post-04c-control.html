@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teecha — Post 4C</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      background: #CBD5E1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    body {
+      width: 800px;
+      height: 800px;
+      overflow: hidden;
+      position: relative;
+      background: #0F172A;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    }
+
+    /* Split halves */
+    .half {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+
+    .half-left {
+      background: #0F172A;
+      clip-path: polygon(0 0, 53% 0, 47% 100%, 0 100%);
+    }
+
+    .half-right {
+      background: linear-gradient(155deg, #1D4ED8 0%, #2563EB 30%, #7C3AED 100%);
+      clip-path: polygon(53% 0, 100% 0, 100% 100%, 47% 100%);
+    }
+
+    /* Diagonal divider */
+    .divider {
+      position: absolute;
+      left: calc(50% - 1.5px);
+      top: 0;
+      width: 3px;
+      height: 100%;
+      background: rgba(255,255,255,0.18);
+      transform-origin: center center;
+      transform: skewX(3.4deg);
+      z-index: 10;
+    }
+
+    /* Content left */
+    .content-left {
+      position: absolute;
+      left: 68px;
+      top: 50%;
+      transform: translateY(-50%);
+      max-width: 310px;
+      z-index: 20;
+    }
+
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      margin-bottom: 24px;
+    }
+
+    .neg-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .neg-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .neg-cross {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: rgba(239, 68, 68, 0.55);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .neg-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 1.1;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* Content right */
+    .content-right {
+      position: absolute;
+      right: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 285px;
+      text-align: left;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pos-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .pos-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .pos-check {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .pos-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 34px;
+      line-height: 1.1;
+      color: #fff;
+    }
+
+    .logo {
+      height: 32px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="half half-left"></div>
+  <div class="half half-right"></div>
+  <div class="divider"></div>
+
+  <!-- Left content -->
+  <div class="content-left">
+    <div class="eyebrow">Lo de siempre</div>
+    <div class="neg-list">
+      <div class="neg-item">
+        <span class="neg-cross">×</span>
+        <span class="neg-text">Sus reglas.</span>
+      </div>
+      <div class="neg-item">
+        <span class="neg-cross">×</span>
+        <span class="neg-text">Su academia.</span>
+      </div>
+      <div class="neg-item">
+        <span class="neg-cross">×</span>
+        <span class="neg-text">Su algoritmo.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right content -->
+  <div class="content-right">
+    <div class="pos-list">
+      <div class="pos-item">
+        <span class="pos-check">✓</span>
+        <span class="pos-text">Tu aula.</span>
+      </div>
+      <div class="pos-item">
+        <span class="pos-check">✓</span>
+        <span class="pos-text">Tu precio.</span>
+      </div>
+      <div class="pos-item">
+        <span class="pos-check">✓</span>
+        <span class="pos-text">Tus alumnos.</span>
+      </div>
+    </div>
+    <img class="logo" src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
+  </div>
+
+</body>
+</html>

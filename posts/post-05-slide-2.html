@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teecha — Post 5 / Slide 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html {
+      background: #CBD5E1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    body {
+      width: 800px;
+      height: 800px;
+      overflow: hidden;
+      background: #0F172A;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 80px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 40px;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      width: 100%;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .step-label {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      color: rgba(255,255,255,0.20);
+      width: 32px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .step-text {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 26px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.2;
+    }
+
+    .step.highlight .step-label {
+      color: #F97316;
+    }
+    .step.highlight .step-text {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 8px 0 8px 52px;
+    }
+  </style>
+</head>
+<body>
+  <p class="eyebrow">Las plataformas de cursos grabados</p>
+
+  <div class="steps">
+    <div class="step">
+      <span class="step-label">1</span>
+      <span class="step-text">Grabas horas de contenido</span>
+    </div>
+    <div class="divider"></div>
+    <div class="step">
+      <span class="step-label">2</span>
+      <span class="step-text">Editas y montas el curso</span>
+    </div>
+    <div class="divider"></div>
+    <div class="step">
+      <span class="step-label">3</span>
+      <span class="step-text">Subes y configuras la plataforma</span>
+    </div>
+    <div class="divider"></div>
+    <div class="step">
+      <span class="step-label">4</span>
+      <span class="step-text">Esperas a que lleguen alumnos</span>
+    </div>
+    <div class="divider"></div>
+    <div class="step highlight">
+      <span class="step-label">5</span>
+      <span class="step-text">La plataforma se queda con hasta el 50%</span>
+    </div>
+  </div>
+</body>
+</html>
