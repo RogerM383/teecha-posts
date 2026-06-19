@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teecha — Post 1 · Vista previa Instagram</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #F1F5F9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+      font-family: -apple-system, 'DM Sans', sans-serif;
+    }
+
+    .label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94A3B8;
+      margin-bottom: 20px;
+    }
+
+    /* Phone shell */
+    .phone {
+      width: 393px;
+      background: #fff;
+      border-radius: 44px;
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,0.08),
+        0 24px 80px rgba(0,0,0,0.18);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Status bar */
+    .status-bar {
+      background: #fff;
+      padding: 14px 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+
+    .status-time {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: #000;
+    }
+
+    .status-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-icons svg {
+      width: 16px;
+      height: 16px;
+      fill: #000;
+    }
+
+    /* Dynamic island */
+    .dynamic-island {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 126px;
+      height: 36px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 10;
+    }
+
+    /* IG top bar */
+    .ig-topbar {
+      background: #fff;
+      border-bottom: 1px solid #EFEFEF;
+      padding: 0 16px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ig-logo {
+      font-size: 20px;
+      font-weight: 700;
+      font-style: italic;
+      font-family: Georgia, serif;
+      color: #000;
+      letter-spacing: -0.5px;
+    }
+
+    .ig-topbar-icons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .ig-topbar-icons svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Post card */
+    .post-card {
+      background: #fff;
+    }
+
+    /* Post header */
+    .post-header {
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid transparent;
+      outline: 2px solid transparent;
+      box-shadow: 0 0 0 2px #C13584, 0 0 0 3px #fff;
+    }
+
+    .avatar img {
+      width: 24px;
+      filter: brightness(0) invert(1);
+    }
+
+    .avatar-ring {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .avatar-inner {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
+      border: 2px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-inner img {
+      width: 20px;
+      filter: brightness(0) invert(1);
+    }
+
+    .post-meta {
+      flex: 1;
+    }
+
+    .post-username {
+      font-size: 13px;
+      font-weight: 600;
+      color: #000;
+      line-height: 1.3;
+    }
+
+    .post-location {
+      font-size: 11px;
+      color: #000;
+      line-height: 1.3;
+    }
+
+    .post-more {
+      color: #000;
+      padding: 4px;
+    }
+
+    .post-more svg { width: 20px; height: 20px; }
+
+    /* Post image */
+    .post-image {
+      width: 393px;
+      height: 393px;
+      overflow: hidden;
+      position: relative;
+      background: #000;
+    }
+
+    .post-image iframe {
+      width: 800px;
+      height: 800px;
+      border: none;
+      transform: scale(0.49125);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    /* Action bar */
+    .action-bar {
+      padding: 10px 14px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .actions-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .action-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Likes */
+    .likes {
+      padding: 0 14px 4px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #000;
+    }
+
+    /* Caption */
+    .caption {
+      padding: 0 14px 8px;
+      font-size: 13.5px;
+      color: #000;
+      line-height: 1.5;
+    }
+
+    .caption .username {
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    .caption .hashtags {
+      color: #00376B;
+    }
+
+    .caption .more {
+      color: #737373;
+    }
+
+    /* Comments */
+    .comments {
+      padding: 0 14px 6px;
+      font-size: 13px;
+      color: #737373;
+    }
+
+    /* Timestamp */
+    .timestamp {
+      padding: 0 14px 14px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: #8E8E8E;
+      text-transform: uppercase;
+    }
+
+    /* Comment input */
+    .comment-input {
+      border-top: 1px solid #EFEFEF;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .comment-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #DBDBDB;
+      flex-shrink: 0;
+    }
+
+    .comment-placeholder {
+      font-size: 13px;
+      color: #8E8E8E;
+      flex: 1;
+    }
+
+    /* Bottom tab bar */
+    .tab-bar {
+      background: #fff;
+      border-top: 1px solid #DBDBDB;
+      padding: 10px 8px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .tab-bar svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .tab-active svg {
+      fill: #000;
+    }
+
+    .tab-inactive svg {
+      fill: none;
+      stroke: #000;
+      stroke-width: 1.5;
+    }
+
+    /* Caption line breaks */
+    .caption-text {
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="label">Vista previa · Instagram · Post 01</div>
+
+  <div class="phone">
+    <div class="dynamic-island"></div>
+
+    <!-- Status bar -->
+    <div class="status-bar">
+      <span class="status-time">9:41</span>
+      <div class="status-icons">
+        <!-- Signal -->
+        <svg viewBox="0 0 17 12"><rect x="0" y="3" width="3" height="9" rx="1"/><rect x="4.5" y="2" width="3" height="10" rx="1"/><rect x="9" y="1" width="3" height="11" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+        <!-- Wifi -->
+        <svg viewBox="0 0 16 12"><path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm0-3.5a6 6 0 0 1 4.24 1.76l-1.42 1.42A4 4 0 0 0 8 8a4 4 0 0 0-2.83 1.17L3.76 7.76A6 6 0 0 1 8 6zm0-4a10 10 0 0 1 7.07 2.93l-1.41 1.41A8 8 0 0 0 8 4a8 8 0 0 0-5.66 2.34L.93 4.93A10 10 0 0 1 8 2z"/></svg>
+        <!-- Battery -->
+        <svg viewBox="0 0 25 12"><rect x="0" y="1" width="22" height="10" rx="3" stroke="#000" stroke-width="1" fill="none"/><rect x="1" y="2" width="19" height="8" rx="2" fill="#000"/><path d="M23 4v4a2 2 0 0 0 0-4z" fill="#000"/></svg>
+      </div>
+    </div>
+
+    <!-- IG top bar -->
+    <div class="ig-topbar">
+      <span class="ig-logo">Instagram</span>
+      <div class="ig-topbar-icons">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+      </div>
+    </div>
+
+    <!-- Post -->
+    <div class="post-card">
+
+      <!-- Post header -->
+      <div class="post-header">
+        <div class="avatar-ring">
+          <div class="avatar-inner">
+            <img src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
+          </div>
+        </div>
+        <div class="post-meta">
+          <div class="post-username">teecha.app</div>
+          <div class="post-location">España</div>
+        </div>
+        <div class="post-more">
+          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+        </div>
+      </div>
+
+      <!-- Post image (iframe scaled) -->
+      <div class="post-image">
+        <iframe src="../posts/post-01-presentacion.html" scrolling="no"></iframe>
+      </div>
+
+      <!-- Action bar -->
+      <div class="action-bar">
+        <div class="actions-left">
+          <div class="action-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="action-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="action-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </div>
+        </div>
+        <div class="action-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </div>
+      </div>
+
+      <!-- Likes -->
+      <div class="likes">23 Me gusta</div>
+
+      <!-- Caption -->
+      <div class="caption">
+        <span class="username">teecha.app</span><span class="caption-text">Teecha ya está aquí. 👋
+
+Somos el marketplace de formación en directo para formadores que quieren enseñar sin intermediarios, sin ceder el control y sin pasarse horas editando vídeos.
+
+Solo tú, tus materiales y tus alumnos en tiempo real.
+
+Estamos en lanzamiento y buscamos a los primeros formadores. ¿Nos cuentas qué enseñas?
+
+🔗 teecha.app/formadores
+
+<span class="hashtags">#formadores #formaciononline #clasesOnline #elearning #formacionprofesional #emprendimiento</span></span>
+      </div>
+
+      <!-- Comments -->
+      <div class="comments">Ver los 4 comentarios</div>
+
+      <!-- Timestamp -->
+      <div class="timestamp">Hace 2 horas</div>
+
+      <!-- Comment input -->
+      <div class="comment-input">
+        <div class="comment-avatar"></div>
+        <span class="comment-placeholder">Añade un comentario...</span>
+      </div>
+
+    </div>
+
+    <!-- Tab bar -->
+    <div class="tab-bar">
+      <span class="tab-active">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      </span>
+      <span class="tab-inactive">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </span>
+      <span class="tab-inactive">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      </span>
+      <span class="tab-inactive">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </span>
+      <span class="tab-inactive">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </span>
+    </div>
+
+  </div>
+
+</body>
+</html>

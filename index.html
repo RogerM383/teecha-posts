@@ -147,6 +147,30 @@
       color: #94A3B8;
     }
 
+    /* Clickable frame */
+    .frame-link {
+      position: relative;
+      display: block;
+      width: 800px;
+      height: 800px;
+    }
+
+    .frame-link iframe {
+      pointer-events: none;
+    }
+
+    .frame-overlay {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .frame-overlay:hover + iframe,
+    .frame-link:hover .frame-overlay ~ iframe {
+      box-shadow: 0 0 0 4px #7C3AED;
+    }
+
     /* Carousel */
     .carousel-wrapper {
       display: flex;
@@ -258,7 +282,10 @@
         <span class="post-num">Post 01</span>
         <span class="post-title">Presentación de marca</span>
       </div>
-      <iframe class="post-frame" src="posts/post-01-presentacion.html" scrolling="no"></iframe>
+      <a class="frame-link" href="post-01-ig-mockup.html" title="Ver mockup Instagram">
+        <div class="frame-overlay"></div>
+        <iframe class="post-frame" src="posts/post-01-presentacion.html" scrolling="no"></iframe>
+      </a>
     </div>
 
     <div class="section-divider"></div>
