@@ -265,13 +265,83 @@
       background: #E2E8F0;
       margin-bottom: 20px;
     }
+
+    /* Section heading */
+    .section-heading {
+      width: 800px;
+      padding: 64px 0 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      border-top: 2px solid #E2E8F0;
+    }
+    .section-heading h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: #1E293B;
+      letter-spacing: -0.5px;
+    }
+    .section-heading p {
+      font-size: 14px;
+      color: #94A3B8;
+    }
+    .platform-badge-li {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #EEF2FF;
+      border: 1px solid #C7D2FE;
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #3730A3;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* LinkedIn frame (1080×1350 scaled to 50%) */
+    .linkedin-carousel-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .linkedin-carousel {
+      position: relative;
+      width: 540px;
+      height: 540px;
+    }
+    .linkedin-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      overflow: hidden;
+    }
+    .linkedin-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .linkedin-slide iframe {
+      width: 1080px;
+      height: 1080px;
+      border: none;
+      transform: scale(0.5);
+      transform-origin: top left;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
 
   <header>
     <img class="header-logo" src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
-    <span class="header-meta">Creatividades Instagram — <strong>Soft Launch Formadores</strong></span>
+    <span class="header-meta">Creatividades Instagram &amp; LinkedIn — <strong>Soft Launch Formadores</strong></span>
   </header>
 
   <div class="gallery">
@@ -396,6 +466,57 @@
       <iframe class="post-frame" src="posts/post-09-cta.html" scrolling="no"></iframe>
     </div>
 
+    <div class="section-divider" style="height: 80px;"></div>
+
+    <!-- ─── LINKEDIN SECTION ─── -->
+    <div class="section-heading">
+      <span class="platform-badge-li">LinkedIn</span>
+      <h2>Slider LinkedIn — Captación de formadores</h2>
+      <p>Documento de 5 slides · 1080 × 1350 px (4:5) · Pain point → Teecha</p>
+    </div>
+
+    <div class="post-item">
+      <div class="post-label">
+        <span class="post-num">LI 01–05</span>
+        <span class="post-title">¿Llevas años siendo el activo de un negocio que no es tuyo?</span>
+        <span class="post-badge">Slider · 5 slides</span>
+      </div>
+      <div class="linkedin-carousel-wrapper">
+        <div class="linkedin-carousel" id="li-carousel">
+          <div class="linkedin-slide active">
+            <iframe src="posts/linkedin-formadores-slide-1.html" scrolling="no"></iframe>
+          </div>
+          <div class="linkedin-slide">
+            <iframe src="posts/linkedin-formadores-slide-2.html" scrolling="no"></iframe>
+          </div>
+          <div class="linkedin-slide">
+            <iframe src="posts/linkedin-formadores-slide-3.html" scrolling="no"></iframe>
+          </div>
+          <div class="linkedin-slide">
+            <iframe src="posts/linkedin-formadores-slide-4.html" scrolling="no"></iframe>
+          </div>
+          <div class="linkedin-slide">
+            <iframe src="posts/linkedin-formadores-slide-5.html" scrolling="no"></iframe>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" onclick="liPrev()" title="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-dots" id="li-dots">
+            <div class="dot active" onclick="liGoTo(0)"></div>
+            <div class="dot" onclick="liGoTo(1)"></div>
+            <div class="dot" onclick="liGoTo(2)"></div>
+            <div class="dot" onclick="liGoTo(3)"></div>
+            <div class="dot" onclick="liGoTo(4)"></div>
+          </div>
+          <button class="carousel-btn" onclick="liNext()" title="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <script>
@@ -419,6 +540,21 @@
       if (e.key === 'ArrowRight') nextSlide();
       if (e.key === 'ArrowLeft') prevSlide();
     });
+
+    // LinkedIn carousel
+    let liCurrent = 0;
+    const liSlides = document.querySelectorAll('.linkedin-slide');
+    const liDots = document.querySelectorAll('#li-dots .dot');
+
+    function liGoTo(n) {
+      liSlides[liCurrent].classList.remove('active');
+      liDots[liCurrent].classList.remove('active');
+      liCurrent = (n + liSlides.length) % liSlides.length;
+      liSlides[liCurrent].classList.add('active');
+      liDots[liCurrent].classList.add('active');
+    }
+    function liNext() { liGoTo(liCurrent + 1); }
+    function liPrev() { liGoTo(liCurrent - 1); }
   </script>
 
 </body>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teecha LinkedIn — Slide 3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html {
+      background: #CBD5E1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    body {
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background: #0F172A;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 72px 88px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+    .slide-num {
+      font-size: 16px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.28);
+      letter-spacing: 0.06em;
+    }
+
+    .middle {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 84px;
+      line-height: 1.05;
+      color: #fff;
+      letter-spacing: -3px;
+      margin-bottom: 56px;
+    }
+
+    h2 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #60A5FA, #A78BFA);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .check-icon {
+      font-size: 28px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .check-text {
+      font-size: 30px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.35;
+    }
+
+    .check-text strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .kicker {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.45);
+      max-width: 680px;
+      line-height: 1.4;
+    }
+
+    .hint {
+      font-size: 18px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.28);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top">
+    <img class="logo" src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
+    <span class="slide-num">3 / 5</span>
+  </div>
+
+  <div class="middle">
+    <h2>No hace falta<br>grabar <em>nada.</em></h2>
+    <div class="check-list">
+      <div class="check-item">
+        <span class="check-icon">✓</span>
+        <span class="check-text">Sin producción de vídeo ni edición</span>
+      </div>
+      <div class="check-item">
+        <span class="check-icon">✓</span>
+        <span class="check-text">Sin aprender herramientas nuevas</span>
+      </div>
+      <div class="check-item">
+        <span class="check-icon">✓</span>
+        <span class="check-text">Solo tú, tu conocimiento y tus alumnos</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <p class="kicker">Ya tienes todo lo que necesita un buen formador.</p>
+    <span class="hint">Desliza →</span>
+  </div>
+
+</body>
+</html>

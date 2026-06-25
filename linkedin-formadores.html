@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teecha — LinkedIn Slider Formadores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #F1F5F9;
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #E2E8F0;
+      padding: 18px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-logo {
+      height: 26px;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #EEF2FF;
+      border: 1px solid #C7D2FE;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #3730A3;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .header-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4F46E5;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 64px 24px 80px;
+      gap: 48px;
+    }
+
+    /* Hero text */
+    .hero {
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 28px;
+      color: #0F172A;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: #94A3B8;
+      line-height: 1.6;
+    }
+
+    /* Slider wrapper */
+    .slider-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    /* LinkedIn device frame */
+    .li-device {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      padding: 16px;
+      width: 572px;
+    }
+
+    /* Fake LinkedIn post header */
+    .li-post-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .li-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .li-post-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .li-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0F172A;
+    }
+
+    .li-subtitle {
+      font-size: 12px;
+      color: #94A3B8;
+    }
+
+    /* Slide canvas */
+    .li-slide-area {
+      position: relative;
+      width: 540px;
+      height: 540px;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #0F172A;
+    }
+
+    .li-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      overflow: hidden;
+    }
+
+    .li-slide.active {
+      opacity: 1;
+    }
+
+    .li-slide iframe {
+      width: 1080px;
+      height: 1080px;
+      border: none;
+      transform: scale(0.5);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    /* Arrow buttons overlaid */
+    .li-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.90);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.20);
+      z-index: 10;
+      transition: background 0.15s;
+    }
+
+    .li-arrow:hover { background: #fff; }
+    .li-arrow svg { width: 16px; height: 16px; color: #1E293B; }
+    .li-arrow-left { left: 10px; }
+    .li-arrow-right { right: 10px; }
+
+    /* Slide counter badge */
+    .li-counter {
+      position: absolute;
+      bottom: 12px;
+      right: 14px;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      z-index: 10;
+      letter-spacing: 0.04em;
+    }
+
+    /* Dots */
+    .li-dots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #CBD5E1;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .dot.active {
+      background: #4F46E5;
+      width: 22px;
+      border-radius: 4px;
+    }
+
+    /* Keyboard hint */
+    .kbd-hint {
+      font-size: 13px;
+      color: #94A3B8;
+      text-align: center;
+    }
+
+    .kbd {
+      display: inline-block;
+      background: #fff;
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 12px;
+      color: #475569;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }
+
+    /* Copy section */
+    .copy-section {
+      width: 572px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      overflow: hidden;
+    }
+
+    .copy-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .copy-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0F172A;
+      letter-spacing: 0.01em;
+    }
+
+    .copy-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: #7C3AED;
+      background: #F3F0FF;
+      border-radius: 20px;
+      padding: 3px 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .copy-body {
+      padding: 20px 24px;
+    }
+
+    .copy-text {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #334155;
+      white-space: pre-line;
+    }
+
+    .copy-divider {
+      height: 1px;
+      background: #F1F5F9;
+      margin: 16px 0;
+    }
+
+    .copy-hashtags {
+      font-size: 13px;
+      color: #3B82F6;
+      font-weight: 500;
+      line-height: 2;
+    }
+
+    .copy-footer {
+      padding: 14px 24px;
+      background: #F8FAFC;
+      border-top: 1px solid #F1F5F9;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .copy-btn {
+      font-size: 13px;
+      font-weight: 600;
+      color: #4F46E5;
+      background: #EEF2FF;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .copy-btn:hover { background: #E0E7FF; }
+    .copy-btn.copied { color: #059669; background: #ECFDF5; }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: #CBD5E1;
+      border-top: 1px solid #E2E8F0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img class="header-logo" src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
+    <span class="header-badge">LinkedIn · Slider formadores</span>
+  </header>
+
+  <main>
+
+    <div class="hero">
+      <h1>Slider LinkedIn — Captación de formadores</h1>
+      <p>5 slides · 1080×1080px · Documento PDF para publicar como carrusel en LinkedIn</p>
+    </div>
+
+    <div class="slider-wrapper">
+
+      <div class="li-device">
+
+        <!-- Fake LinkedIn post header -->
+        <div class="li-post-header">
+          <div class="li-avatar">T</div>
+          <div class="li-post-meta">
+            <span class="li-name">Teecha</span>
+            <span class="li-subtitle">Plataforma de formación en directo · Ahora</span>
+          </div>
+        </div>
+
+        <!-- Slides -->
+        <div class="li-slide-area" id="li-carousel">
+          <div class="li-slide active">
+            <iframe src="posts/linkedin-formadores-slide-1.html" scrolling="no"></iframe>
+          </div>
+          <div class="li-slide">
+            <iframe src="posts/linkedin-formadores-slide-2.html" scrolling="no"></iframe>
+          </div>
+          <div class="li-slide">
+            <iframe src="posts/linkedin-formadores-slide-3.html" scrolling="no"></iframe>
+          </div>
+          <div class="li-slide">
+            <iframe src="posts/linkedin-formadores-slide-4.html" scrolling="no"></iframe>
+          </div>
+          <div class="li-slide">
+            <iframe src="posts/linkedin-formadores-slide-5.html" scrolling="no"></iframe>
+          </div>
+
+          <button class="li-arrow li-arrow-left" onclick="liPrev()" title="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="li-arrow li-arrow-right" onclick="liNext()" title="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <span class="li-counter" id="li-counter">1 / 5</span>
+        </div>
+
+        <div class="li-dots" id="li-dots">
+          <div class="dot active" onclick="liGoTo(0)"></div>
+          <div class="dot" onclick="liGoTo(1)"></div>
+          <div class="dot" onclick="liGoTo(2)"></div>
+          <div class="dot" onclick="liGoTo(3)"></div>
+          <div class="dot" onclick="liGoTo(4)"></div>
+        </div>
+
+      </div>
+
+      <p class="kbd-hint">
+        Navega con <span class="kbd">←</span> <span class="kbd">→</span> o con las flechas del slider
+      </p>
+
+    </div>
+
+    <!-- Copy section -->
+    <div class="copy-section">
+      <div class="copy-header">
+        <span class="copy-title">Texto del post</span>
+        <span class="copy-badge">Versión principal</span>
+      </div>
+      <div class="copy-body">
+        <p class="copy-text">Lo que hace que una formación sea buena no cabe en un vídeo.
+
+Cabe en la pregunta que un alumno te hace en el momento justo.
+En el ritmo que ajustas sobre la marcha.
+En la conexión que solo existe cuando estáis los dos presentes.
+
+Si llevas años dando formación, ya sabes todo esto.
+
+El problema no es tu conocimiento. El problema es que la mayoría de plataformas te piden que lo conviertas en algo que no es: horas de vídeo grabado, edición, producción... todo para que el alumno lo consuma solo, en diferido, sin ti.
+
+En Teecha es diferente.
+
+Das clase en directo — como siempre has hecho — pero en tu plataforma, con tus horarios, con tus condiciones y con mejores condiciones económicas que en una academia.
+
+Sin grabar nada. Sin aprender herramientas nuevas. Solo tú y tus alumnos.
+
+👇 Desliza para verlo.
+Regístrate gratis en teecha.app/formadores</p>
+        <div class="copy-divider"></div>
+        <p class="copy-hashtags">#FormacionOnline &nbsp;#FormadoresEspaña &nbsp;#Elearning &nbsp;#Edtech &nbsp;#FormacionProfesional</p>
+      </div>
+      <div class="copy-footer">
+        <button class="copy-btn" id="copy-btn" onclick="copiarTexto()">Copiar texto</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    Teecha · Creatividades LinkedIn · Junio 2026
+  </footer>
+
+  <script>
+    // Carousel
+    let current = 0;
+    const slides = document.querySelectorAll('.li-slide');
+    const dots = document.querySelectorAll('#li-dots .dot');
+    const counter = document.getElementById('li-counter');
+
+    function liGoTo(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      counter.textContent = (current + 1) + ' / ' + slides.length;
+    }
+
+    function liNext() { liGoTo(current + 1); }
+    function liPrev() { liGoTo(current - 1); }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') liNext();
+      if (e.key === 'ArrowLeft') liPrev();
+    });
+
+    // Copy button
+    function copiarTexto() {
+      const texto = `Lo que hace que una formación sea buena no cabe en un vídeo.
+
+Cabe en la pregunta que un alumno te hace en el momento justo.
+En el ritmo que ajustas sobre la marcha.
+En la conexión que solo existe cuando estáis los dos presentes.
+
+Si llevas años dando formación, ya sabes todo esto.
+
+El problema no es tu conocimiento. El problema es que la mayoría de plataformas te piden que lo conviertas en algo que no es: horas de vídeo grabado, edición, producción... todo para que el alumno lo consuma solo, en diferido, sin ti.
+
+En Teecha es diferente.
+
+Das clase en directo — como siempre has hecho — pero en tu plataforma, con tus horarios, con tus condiciones y con mejores condiciones económicas que en una academia.
+
+Sin grabar nada. Sin aprender herramientas nuevas. Solo tú y tus alumnos.
+
+👇 Desliza para verlo.
+Regístrate gratis en teecha.app/formadores
+
+#FormacionOnline #FormadoresEspaña #Elearning #Edtech #FormacionProfesional`;
+
+      navigator.clipboard.writeText(texto).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✓ Copiado';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copiar texto';
+          btn.classList.remove('copied');
+        }, 2500);
+      });
+    }
+  </script>
+
+</body>
+</html>

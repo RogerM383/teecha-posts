@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teecha LinkedIn — Slide 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html {
+      background: #CBD5E1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    body {
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background: #0F172A;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 72px 88px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+    .slide-num {
+      font-size: 16px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.28);
+      letter-spacing: 0.06em;
+    }
+
+    .middle {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0;
+    }
+
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 80px;
+      line-height: 1.06;
+      color: #fff;
+      letter-spacing: -2.5px;
+      margin-bottom: 52px;
+    }
+
+    h2 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #60A5FA, #A78BFA);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .feature-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
+      flex-shrink: 0;
+    }
+
+    .feature-text {
+      font-size: 30px;
+      line-height: 1.35;
+      color: rgba(255,255,255,0.80);
+    }
+
+    .feature-text strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .kicker {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.38);
+      font-style: italic;
+      max-width: 600px;
+      line-height: 1.4;
+    }
+
+    .hint {
+      font-size: 18px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.28);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top">
+    <img class="logo" src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
+    <span class="slide-num">2 / 5</span>
+  </div>
+
+  <div class="middle">
+    <h2>Tus alumnos<br>te necesitan<br><em>en tiempo real.</em></h2>
+    <div class="feature-list">
+      <div class="feature-item">
+        <div class="feature-dot"></div>
+        <span class="feature-text"><strong>Resuelves dudas</strong> en el momento en que aparecen</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-dot"></div>
+        <span class="feature-text"><strong>Adaptas el ritmo</strong> a lo que el grupo necesita</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-dot"></div>
+        <span class="feature-text"><strong>Conectas</strong> de verdad — no con una pantalla en diferido</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <p class="kicker">Eso es lo que convierte una clase en una buena clase.</p>
+    <span class="hint">Desliza →</span>
+  </div>
+
+</body>
+</html>
