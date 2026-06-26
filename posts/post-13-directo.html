@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teecha — Post 13</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      background: #CBD5E1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    body {
+      width: 800px;
+      height: 800px;
+      overflow: hidden;
+      background: #0F172A;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 72px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .eyebrow {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7C3AED;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .headline {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 38px;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 36px;
+    }
+
+    .reasons {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .reason {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .reason:last-child { border-bottom: none; }
+
+    .reason-icon {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(124,58,237,0.18);
+      border-radius: 10px;
+      color: #A78BFA;
+      margin-top: 1px;
+    }
+
+    .reason-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .reason-body { flex: 1; }
+
+    .reason-title {
+      font-weight: 600;
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .reason-desc {
+      font-weight: 400;
+      font-size: 22px;
+      color: rgba(255,255,255,0.42);
+      line-height: 1.45;
+    }
+
+    .footer {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      height: 34px;
+      filter: brightness(0) invert(1);
+      opacity: 0.6;
+    }
+
+    .footer-url {
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="eyebrow">El directo no es nostalgia. Es mejor.</div>
+  <div class="headline">5 razones por las que tus<br>alumnos aprenden más<br>contigo en vivo.</div>
+
+  <div class="reasons">
+
+    <div class="reason">
+      <div class="reason-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="reason-body">
+        <div class="reason-title">Preguntan en el momento</div>
+        <div class="reason-desc">El alumno que se atasca no espera dos días. Pregunta y avanza.</div>
+      </div>
+    </div>
+
+    <div class="reason">
+      <div class="reason-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="reason-body">
+        <div class="reason-title">La motivación no cae</div>
+        <div class="reason-desc">Una clase en vivo crea compromiso. Un vídeo, lo pospones.</div>
+      </div>
+    </div>
+
+    <div class="reason">
+      <div class="reason-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <div class="reason-body">
+        <div class="reason-title">Tú ves a tus alumnos</div>
+        <div class="reason-desc">Adaptas el ritmo, detectas quién está perdido, ajustas en tiempo real.</div>
+      </div>
+    </div>
+
+    <div class="reason">
+      <div class="reason-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="reason-body">
+        <div class="reason-title">Feedback inmediato para ti</div>
+        <div class="reason-desc">Sabes qué funciona. Tu formación mejora clase a clase.</div>
+      </div>
+    </div>
+
+    <div class="reason">
+      <div class="reason-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="reason-body">
+        <div class="reason-title">Se crea comunidad</div>
+        <div class="reason-desc">Los alumnos se conocen entre sí. Eso no pasa con un vídeo.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <img class="footer-logo" src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
+    <span class="footer-url">teecha.app/formadores</span>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teecha — Post 14</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      background: #CBD5E1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    body {
+      width: 800px;
+      height: 800px;
+      overflow: hidden;
+      background: linear-gradient(160deg, #EEF2FF 0%, #F5F0FF 100%);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 52px 60px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .headline {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 40px;
+      color: #0F172A;
+      text-align: center;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 36px;
+    }
+
+    .table-wrap {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    /* Header row */
+    thead th {
+      padding: 14px 18px;
+      font-size: 19px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .th-empty {
+      width: 42%;
+      background: #F8FAFC;
+      border-bottom: 1px solid #E2E8F0;
+      text-align: left;
+      padding-left: 22px;
+      color: #94A3B8;
+      font-size: 17px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .th-academia {
+      background: #F1F5F9;
+      color: #64748B;
+      border-bottom: 1px solid #E2E8F0;
+      width: 29%;
+    }
+
+    .th-teecha {
+      background: #7C3AED;
+      color: #fff;
+      border-bottom: 1px solid #6D28D9;
+      width: 29%;
+      border-radius: 0 8px 0 0;
+    }
+
+    /* Data rows */
+    tbody tr { border-bottom: 1px solid #F1F5F9; }
+    tbody tr:last-child { border-bottom: none; }
+
+    tbody tr:nth-child(even) .td-label { background: #FAFBFF; }
+    tbody tr:nth-child(even) .td-academia { background: #F8FAFC; }
+    tbody tr:nth-child(even) .td-teecha { background: #F5F0FF; }
+
+    td {
+      padding: 13px 18px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .td-label {
+      text-align: left;
+      padding-left: 22px;
+      font-weight: 500;
+      font-size: 22px;
+      color: #334155;
+    }
+
+    .td-academia {
+      font-size: 20px;
+      color: #94A3B8;
+      font-weight: 400;
+    }
+
+    .td-teecha {
+      font-size: 20px;
+      color: #6D28D9;
+      font-weight: 600;
+    }
+
+    .check { color: #7C3AED; font-size: 24px; font-weight: 700; }
+    .cross  { color: #CBD5E1; font-size: 22px; }
+
+    /* Footer */
+    .footer {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-logo { height: 32px; }
+
+    .footer-url {
+      font-size: 20px;
+      font-weight: 500;
+      color: #7C3AED;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="headline">¿Academia o Teecha?<br>Compara y decide.</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="th-empty">Criterio</th>
+          <th class="th-academia">Academia</th>
+          <th class="th-teecha">Teecha ✓</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-label">Comisión por alumno</td>
+          <td class="td-academia">60–70%</td>
+          <td class="td-teecha">Tarifa fija</td>
+        </tr>
+        <tr>
+          <td class="td-label">Clases en directo</td>
+          <td class="td-academia"><span class="cross">✕</span></td>
+          <td class="td-teecha"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-label">Alumnos propios</td>
+          <td class="td-academia"><span class="cross">✕</span></td>
+          <td class="td-teecha"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-label">Control de precios</td>
+          <td class="td-academia"><span class="cross">✕</span></td>
+          <td class="td-teecha"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-label">Cobro directo</td>
+          <td class="td-academia"><span class="cross">✕</span></td>
+          <td class="td-teecha"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-label">Aula propia</td>
+          <td class="td-academia"><span class="cross">✕</span></td>
+          <td class="td-teecha"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="td-label">Captación integrada</td>
+          <td class="td-academia"><span class="cross">✕</span></td>
+          <td class="td-teecha"><span class="check">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <img class="footer-logo" src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
+    <span class="footer-url">teecha.app/formadores</span>
+  </div>
+
+</body>
+</html>

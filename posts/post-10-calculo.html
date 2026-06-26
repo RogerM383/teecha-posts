@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teecha — Post 10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      background: #CBD5E1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    body {
+      width: 800px;
+      height: 800px;
+      overflow: hidden;
+      background: #0F172A;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 72px 80px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .eyebrow {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7C3AED;
+      margin-bottom: 10px;
+    }
+
+    .headline {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 58px;
+      color: #fff;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      margin-bottom: 48px;
+    }
+
+    .rows {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .row-label {
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.30);
+      width: 148px;
+      flex-shrink: 0;
+    }
+
+    .row-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .row-you {
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.38);
+    }
+
+    .row-amount {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 40px;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .amount-academia { color: #EF4444; opacity: 0.65; }
+    .amount-video    { color: rgba(255,255,255,0.40); }
+    .amount-teecha   { color: #7C3AED; }
+
+    .row-note {
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.28);
+      margin-top: 2px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      height: 36px;
+      filter: brightness(0) invert(1);
+      opacity: 0.6;
+    }
+
+    .footer-url {
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="eyebrow">Haz el cálculo</div>
+  <div class="headline">Tu curso<br>vale 200€.</div>
+
+  <div class="rows">
+
+    <div class="row">
+      <div class="row-label">Academia</div>
+      <div class="row-content">
+        <div class="row-you">Tu parte</div>
+        <div class="row-amount amount-academia">~40€</div>
+        <div class="row-note">La academia se lleva 160€</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-label">Plataforma<br>de vídeo</div>
+      <div class="row-content">
+        <div class="row-you">Tu parte</div>
+        <div class="row-amount amount-video">~100€</div>
+        <div class="row-note">Y sin interacción en directo</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-label">Teecha</div>
+      <div class="row-content">
+        <div class="row-you">Tu parte</div>
+        <div class="row-amount amount-teecha">Tú decides.</div>
+        <div class="row-note">Tarifa fija transparente · Sin comisiones</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <img class="footer-logo" src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
+    <span class="footer-url">teecha.app/formadores</span>
+  </div>
+
+</body>
+</html>
