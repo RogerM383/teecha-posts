@@ -19,43 +19,38 @@
       width: 1080px;
       height: 1080px;
       overflow: hidden;
-      background: linear-gradient(145deg, #4655E8 0%, #6B35E8 55%, #8228E2 100%);
+      background: linear-gradient(150deg, #16103A 0%, #1D2A6E 45%, #2D1B6E 100%);
       box-shadow: 0 8px 48px rgba(0,0,0,0.3);
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: space-between;
       padding: 72px 88px;
       font-family: 'DM Sans', sans-serif;
       position: relative;
-      text-align: center;
     }
 
-    body::before {
+    body::after {
       content: '';
       position: absolute;
-      bottom: -80px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 700px;
-      height: 400px;
-      background: radial-gradient(ellipse, rgba(255,255,255,0.07) 0%, transparent 70%);
+      top: -150px;
+      right: -150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(124,58,237,0.22) 0%, transparent 65%);
       pointer-events: none;
     }
 
     .top {
-      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: relative;
       z-index: 1;
     }
-    .logo-top {
+    .logo {
       height: 80px;
       width: auto;
       filter: brightness(0) invert(1);
-      opacity: 0.55;
     }
     .slide-num {
       font-size: 18px;
@@ -68,87 +63,100 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      gap: 0;
       position: relative;
       z-index: 1;
     }
 
-    .logo-main {
-      height: 100px;
-      width: auto;
-      filter: brightness(0) invert(1);
-      margin-bottom: 36px;
+    .eyebrow {
+      font-size: 22px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 28px;
     }
 
-    .divider {
-      width: 44px;
-      height: 2px;
-      background: rgba(255,255,255,0.28);
-      border-radius: 1px;
-      margin-bottom: 44px;
-    }
-
-    h1 {
+    h2 {
       font-family: 'Poppins', sans-serif;
       font-weight: 800;
-      font-size: 88px;
-      line-height: 1.0;
+      font-size: 72px;
+      line-height: 1.06;
       color: #fff;
-      letter-spacing: -3px;
-      margin-bottom: 20px;
-      white-space: nowrap;
-    }
-
-    .sub {
-      font-size: 30px;
-      color: rgba(255,255,255,0.70);
+      letter-spacing: -2.5px;
       margin-bottom: 52px;
-      line-height: 1.45;
     }
 
-    .cta-pill {
-      background: rgba(255,255,255,0.14);
-      border: 2px solid rgba(255,255,255,0.28);
+    h2 .accent {
+      background: linear-gradient(90deg, #60A5FA, #A78BFA);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .pills {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.10);
+      border: 1.5px solid rgba(255,255,255,0.18);
       border-radius: 100px;
-      padding: 20px 52px;
-      font-size: 26px;
+      padding: 14px 26px;
+      font-size: 21px;
       font-weight: 600;
       color: #fff;
-      letter-spacing: 0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1;
     }
 
     .bottom {
-      width: 100%;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
       position: relative;
       z-index: 1;
     }
-    .tagline {
+
+    .sub {
+      font-size: 28px;
+      color: rgba(255,255,255,0.42);
+      line-height: 1.5;
+    }
+
+    .hint {
       font-size: 22px;
-      color: rgba(255,255,255,0.38);
-      letter-spacing: 0.04em;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      white-space: nowrap;
     }
   </style>
 </head>
 <body>
 
   <div class="top">
-    <span></span>
-    <span class="slide-num">5 / 5</span>
+    <img class="logo" src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
+    <span class="slide-num">5 / 6</span>
   </div>
 
   <div class="middle">
-    <img class="logo-main" src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
-    <div class="divider"></div>
-    <h1>¿Eres formador?</h1>
-    <p class="sub">Regístrate gratis.<br>Sé de los primeros.</p>
-    <div class="cta-pill">teecha.app/formadores</div>
+    <p class="eyebrow">En Teecha</p>
+    <h2>Tus condiciones.<br>Tu horario.<br><span class="accent">Tu aula.</span></h2>
+    <div class="pills">
+      <div class="pill">🎯 Clases en directo</div>
+      <div class="pill">🗓️ Tu horario</div>
+      <div class="pill">👤 Tus alumnos</div>
+      <div class="pill">💼 Mejores condiciones que en una academia</div>
+    </div>
   </div>
 
   <div class="bottom">
-    <p class="tagline">Da clase en directo · Sin intermediarios · Con tus alumnos</p>
+    <p class="sub">Sin que nadie decida por ti<br>cómo, cuándo y cuánto enseñas.</p>
+    <span class="hint">Desliza →</span>
   </div>
 
 </body>

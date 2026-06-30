@@ -389,6 +389,9 @@
           <div class="li-slide">
             <iframe src="posts/linkedin-formadores-slide-5.html" scrolling="no"></iframe>
           </div>
+          <div class="li-slide">
+            <iframe src="posts/linkedin-formadores-slide-6.html" scrolling="no"></iframe>
+          </div>
 
           <button class="li-arrow li-arrow-left" onclick="liPrev()" title="Anterior">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
@@ -405,6 +408,7 @@
           <div class="dot" onclick="liGoTo(2)"></div>
           <div class="dot" onclick="liGoTo(3)"></div>
           <div class="dot" onclick="liGoTo(4)"></div>
+          <div class="dot" onclick="liGoTo(5)"></div>
         </div>
 
       </div>
@@ -467,7 +471,7 @@ Regístrate gratis en teecha.app/formadores</p>
       current = (n + slides.length) % slides.length;
       slides[current].classList.add('active');
       dots[current].classList.add('active');
-      counter.textContent = (current + 1) + ' / ' + slides.length;
+      counter.textContent = (current + 1) + ' / 6';
     }
 
     function liNext() { liGoTo(current + 1); }

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teecha LinkedIn — Slide 6</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html {
+      background: #CBD5E1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    body {
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #4655E8 0%, #6B35E8 55%, #8228E2 100%);
+      box-shadow: 0 8px 48px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 72px 88px;
+      font-family: 'DM Sans', sans-serif;
+      position: relative;
+      text-align: center;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .top {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .slide-num {
+      font-size: 18px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.06em;
+    }
+
+    .middle {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-main {
+      height: 100px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      margin-bottom: 36px;
+    }
+
+    .divider {
+      width: 44px;
+      height: 2px;
+      background: rgba(255,255,255,0.28);
+      border-radius: 1px;
+      margin-bottom: 44px;
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 88px;
+      line-height: 1.0;
+      color: #fff;
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+      white-space: nowrap;
+    }
+
+    .sub {
+      font-size: 30px;
+      color: rgba(255,255,255,0.70);
+      margin-bottom: 52px;
+      line-height: 1.45;
+    }
+
+    .cta-pill {
+      background: rgba(255,255,255,0.14);
+      border: 2px solid rgba(255,255,255,0.28);
+      border-radius: 100px;
+      padding: 20px 52px;
+      font-size: 26px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+
+    .bottom {
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .tagline {
+      font-size: 22px;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top">
+    <span></span>
+    <span class="slide-num">6 / 6</span>
+  </div>
+
+  <div class="middle">
+    <img class="logo-main" src="https://teecha.app/images/teecha-horizontal.png" alt="Teecha">
+    <div class="divider"></div>
+    <h1>¿Eres formador?</h1>
+    <p class="sub">Regístrate gratis.<br>Sé de los primeros.</p>
+    <div class="cta-pill">teecha.app/formadores</div>
+  </div>
+
+  <div class="bottom">
+    <p class="tagline">Da clase en directo · Sin intermediarios · Con tus alumnos</p>
+  </div>
+
+</body>
+</html>
